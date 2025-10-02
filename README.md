@@ -14,6 +14,8 @@ Run app: **npm run dev**
 
 **Exercise 1.**
 
+https://react.dev/reference/react/useEffect
+
 After some time on production, a new requirement has been requested. When agent adds a new customer and the list of customers is large, there is no feedback, so agents are not sure if the customer has been added correclty until they scroll down the entire list.
 
 To do this improvement, principal engineer suggested you to create a component using useEffect that displays an alert on the top of the list when a new customer is added. The alert should be displayed for 2 seconds.
