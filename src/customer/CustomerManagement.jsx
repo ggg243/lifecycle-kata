@@ -13,6 +13,18 @@ const CustomerManagement = () => {
 		setLoggedIn(!loggedIn);
 	}
 
+    useEffect(() => {
+        setHomeAlertVisible(true);
+        if (loggedIn) {
+            console.log("hello again!")
+            setHomeAlertText("Welcome to the Customer List");
+        } else {
+            console.log("goodbye my friends")
+            setHomeAlertText("Goodbye");
+        }
+        setTimeout(() => setHomeAlertVisible(false), 3000);
+    }, [loggedIn]);
+
 	useEffect(() => {
 		if (customers.length === 0) {
 			return;
@@ -30,7 +42,7 @@ const CustomerManagement = () => {
 			{loggedIn && (
 				<>
 					<CustomerForm setCustomers={setCustomers}/>
-					<CustomerList customers={customers} setHomeAlertVisible={setHomeAlertVisible} setHomeAlertText={setHomeAlertText} />
+					<CustomerList customers={customers}/>
 				</>
 			)}
 		</>
