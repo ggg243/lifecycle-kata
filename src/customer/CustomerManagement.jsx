@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomerForm from "./CustomerForm";
 import CustomerList from "./CustomerList";
 import Alert from "./Alert";
@@ -12,6 +12,17 @@ const CustomerManagement = () => {
 		!loggedIn && setCustomers([]);
 		setLoggedIn(!loggedIn);
 	}
+
+	useEffect(() => {
+		if (customers.length === 0) {
+			return;
+		}
+		setHomeAlertText("User added");
+		setHomeAlertVisible(true);
+		setTimeout(()=>setHomeAlertVisible(false), 2000);
+
+	}, [customers]);
+
 	return (
 		<>
 			<button onClick={handleLogin(loggedIn)}>{loggedIn ? "Log out" : "Log in"}</button>
